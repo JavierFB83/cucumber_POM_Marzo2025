@@ -26,6 +26,16 @@ Given("I login with valid user and password", () => {
   loginPage.correctLogin();
 });
 
+// Better practices
+
+Given("I type the user name {string}", (user) => {
+  loginPage.typeUser(user);
+ });
+
+ Given("I type the password {string}", (password) => {
+  loginPage.typePassword(password);
+ });
+
 
 
 

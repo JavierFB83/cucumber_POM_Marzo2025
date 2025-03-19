@@ -1,9 +1,11 @@
 import { CommonPage } from "./commonPage";
 
+const usernameLocator = '[data-test="username"]'
+
 export class LoginPage extends CommonPage{
 
   typeStandarUser() {
-    cy.get('[data-test="username"]').type('standard_user');
+    cy.get(usernameLocator).type('standard_user');
   }
 
   typeCorrectPassword() {
@@ -28,4 +30,14 @@ export class LoginPage extends CommonPage{
     cy.get('[data-test="primary-header"]').should('contain', 'Swag Labs');
   }
 
+  //BETTER PRACTICES
+
+
+ typeUser (user) {
+  cy.get('[data-test="username"]').type(user);
+ }
+
+ typePassword (password) {
+  cy.get('[data-test="password"]').type(password);
+ }
 }
