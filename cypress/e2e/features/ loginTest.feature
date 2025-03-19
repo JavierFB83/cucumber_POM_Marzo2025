@@ -7,5 +7,9 @@ Background:
  Given I visit "https://www.saucedemo.com/"
  
 #Los Scenarios son los tests (lo que antes era "it")
- Scenario: login succesfull
- Given I do "Vamos a empezar a picar código!"
+ Scenario: login happy path
+  Given I type standar user in login page
+  And I type the correct password in login page
+  And I check that url doesn't contain the endpoint inventory.html
+  When I click on the login button
+  Then I check url include the endpoint inventory.html
