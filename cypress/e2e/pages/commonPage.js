@@ -17,7 +17,12 @@ export class CommonPage{
   }
 
   typeInTextBoxByDataTest (texBoxByDataText, text) {
+    if (text) {
     cy.get(`[data-test="${texBoxByDataText}"]`).type(text);
+    }
+    else {
+      cy.log("no text provided")
+    } 
    }
 
    getElementByDataTest (elementByDataTest) {
@@ -49,4 +54,29 @@ export class CommonPage{
    clickButtonByText (text) {
     cy.get('inputbutton').contain(text).click()
    }
+
+ // Ejercicios 25/03/2025
+
+   checkElementBydataTest (elementDataTest, assertion) {
+    this.getElementByDataTest(elementDataTest).should(assertion)
+   }
+   checkBodyContainText (text) {
+    cy.get('body').should('contain', text)
+   }
+
+   checkBodyNotContainText (text) {
+    cy.get('body').should('not.contain', text)
+   }
+
+   checkBodyText (assertion, text) {
+    cy.get('body').should(assertion, text)
+   }
+
+  getElementByClass(className) {
+    return cy.get(`[class = "${className}"]`)
+  }
+
+  getElementByAttribute(attribute, className) {
+    return cy.get(`[${attribute} = "${className}"]`)
+  }
  }

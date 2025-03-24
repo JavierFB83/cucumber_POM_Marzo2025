@@ -1,7 +1,10 @@
 import { CommonPage } from "./commonPage";
 
+// Locators
 const usernameLocator = '[data-test="username"]'
+const acceptedtUserNames = ['standard_user','locked_out_user','problem_user','performance_glitch_user','error_user','visual_user'];
 
+// Functions
 export class LoginPage extends CommonPage{
 
   typeStandarUser() {
@@ -34,10 +37,32 @@ export class LoginPage extends CommonPage{
 
 
  typeUser (user) {
-  cy.get('[data-test="username"]').type(user);
+    cy.get('[data-test="username"]').type(user);
  }
 
  typePassword (password) {
-  cy.get('[data-test="password"]').type(password);
+    cy.get('[data-test="password"]').type(password);
  }
+
+ // Ejercicios 25/03/2025
+
+ checkAcceptedUsernames () {
+  cy.get('[data-test="login-credentials"]')
+    .should('contain', 'standard_user')
+    .and('contain', 'locked_out_user')
+    .and('contain', 'problem_user')
+    .and('contain', 'performance_glitch_user')
+    .and('contain', 'error_user')
+    .and('contain', 'visual_user');
+ }
+
+checkAcceptedUsernamesBetter () {
+  acceptedtUserNames.forEach(username => {
+    cy.get('[data-test="login-credentials"]').should('contain', username);
+  }); 
+}
+
+checkErrorMessages (errorMessage) {
+  this.checkElementContains('error', errorMessage)
+}
 }
