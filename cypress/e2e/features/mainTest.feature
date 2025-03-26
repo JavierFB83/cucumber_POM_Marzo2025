@@ -1,8 +1,7 @@
 Feature: Main test suite
 
 Background:
-  Given I visit "https://www.saucedemo.com/"
-  When I login with valid user and password
+  Given I login and keep the sesion for the standar_user
 
   Scenario: Add a product to cart from products overview
     Given I check that the element with data-test "shopping-cart-badge" should "not.exist"
