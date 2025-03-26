@@ -70,3 +70,23 @@ Given('I test the accesibility in all the screen', () => {
 Given('I test the accesibility on the element with locator {string}', (elementLocator) => {
   commonPage.testAccesibilityOnElement(elementLocator)
 })
+
+
+
+//-------------------------------------------------------------------------------------------//
+  // Steps para intercept
+
+Given('I wait until the api call for the cookies in HBO page', () => {
+  commonPage.interceptHBOApiCall()
+})
+
+Given('I wait until the api call {string}', (interceptApiCall) => {
+  commonPage.interceptApiCall(interceptApiCall)
+})
+
+
+Given('I wait until the api call with method {string}, endpoint {string} for the max time {int}', (method, interceptApiCall, timeoutTime) => {
+  commonPage.interceptApiCallMethodTimeout(method, interceptApiCall, timeoutTime)
+})
+
+

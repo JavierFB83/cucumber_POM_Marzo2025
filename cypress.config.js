@@ -26,5 +26,6 @@ e2e: {
   },
   numTestsKeptInMemory: 10,
   defaultCommandTimeout: 10000,
-  experimentalStudio: true
+  experimentalStudio: true,
+  failOnStatusCode: false,
 });
