@@ -63,10 +63,10 @@ Given("I click on the element with the text {string}", (elementDataTest) => {
 
 //-------------------------------------------------------------------------------------------//
   // Steps para test de accesibilidad
-  Then ('I test the accesibility in all the screen', () => {
-    commonPage.testAccesibilityInScreen()
-  })
-  
-  Then ('I test the accesibility on the element with locator {string}', (elementLocator) => {
-    commonPage.testAccesibilityOnElement(elementLocator)
-  })
+Given('I test the accesibility in all the screen', () => {
+  commonPage.testAccesibilityInScreen()
+})
+
+Given('I test the accesibility on the element with locator {string}', (elementLocator) => {
+  commonPage.testAccesibilityOnElement(elementLocator)
+})
