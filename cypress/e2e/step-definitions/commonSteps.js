@@ -26,7 +26,7 @@ Given("I visit {string}", (url) => {
   commonPage.typeInTextBoxByDataTest(texBoxByDataText, text);
  });
  
- // Ejercicios 25/03/2025
+ // Ejercicios 24/03/2025
 
  Given("I check that the element with data-test {string} contain the text {string}", (elementByDataTest, text) => {
   commonPage.checkElementContains(elementByDataTest, text);
@@ -53,3 +53,20 @@ Given("I click on the element with data-test {string}", (elementDataTest) => {
   commonPage.clickElementByDataTest(elementDataTest);
 });
  
+// Ejercicios 26/03/2025
+
+Given("I click on the element with the text {string}", (elementDataTest) => {
+  commonPage.clickElementByContent(elementDataTest);
+});
+
+
+
+//-------------------------------------------------------------------------------------------//
+  // Steps para test de accesibilidad
+  Then ('I test the accesibility in all the screen', () => {
+    commonPage.testAccesibilityInScreen()
+  })
+  
+  Then ('I test the accesibility on the element with locator {string}', (elementLocator) => {
+    commonPage.testAccesibilityOnElement(elementLocator)
+  })

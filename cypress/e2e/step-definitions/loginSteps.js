@@ -72,3 +72,9 @@ Given("I check that the element login credentials contain the all the accepted u
 });
 
 //------------------------------------------------------------------------------------------------------//
+
+
+//session
+Given("I login and keep the sesion for the standar_user", () => {
+  loginPage.loginKeepSession();
+});

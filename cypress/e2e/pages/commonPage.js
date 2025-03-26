@@ -79,4 +79,18 @@ export class CommonPage{
   getElementByAttribute(attribute, className) {
     return cy.get(`[${attribute} = "${className}"]`)
   }
+
+//------------------------------------------------------------------------------------------------------------//
+/// Función para testear accesibilidad
+  testAccesibilityInScreen () {
+    cy.injectAxe();
+    cy.checkA11y();
+  }
+
+  testAccesibilityOnElement (elementLocator) {
+    cy.injectAxe();
+    cy.checkA11y(elementLocator)
+  }
+
+
  }

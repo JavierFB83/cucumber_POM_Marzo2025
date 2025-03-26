@@ -12,10 +12,12 @@
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^22.0.1",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
-    "cypress": "^14.2.0",
+    "axe-core": "^4.10.3",
+    "cypress": "^14.2.1",
+    "cypress-axe": "^1.6.0",
     "cypress-cucumber-preprocessor": "^4.3.1"
   },
   "cypress-cucumber-preprocessor": {
- "stepDefinitions": "cypress/e2e/step-definitions/*.js"
+    "stepDefinitions": "cypress/e2e/step-definitions/*.js"
   }
 }

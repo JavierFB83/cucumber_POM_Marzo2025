@@ -56,13 +56,25 @@ export class LoginPage extends CommonPage{
     .and('contain', 'visual_user');
  }
 
-checkAcceptedUsernamesBetter () {
-  acceptedtUserNames.forEach(username => {
-    cy.get('[data-test="login-credentials"]').should('contain', username);
-  }); 
-}
+  checkAcceptedUsernamesBetter () {
+    acceptedtUserNames.forEach(username => {
+      cy.get('[data-test="login-credentials"]').should('contain', username);
+    }); 
+  }
 
-checkErrorMessages (errorMessage) {
-  this.checkElementContains('error', errorMessage)
-}
+  checkErrorMessages (errorMessage) {
+    this.checkElementContains('error', errorMessage)
+  }
+
+  loginKeepSession() {
+    cy.session("loginSession", () => {
+      cy.visit("https://www.saucedemo.com/"); // Visita la URL de inicio de sesión
+      this.correctLogin()
+      cy.url().should("eq", "https://www.saucedemo.com/inventory.html"); // Verifica que se redirige a la página correcta
+    });
+    cy.visit("https://www.saucedemo.com/inventory.html", {
+      failOnStatusCode: false,
+    });
+    cy.url().should("include", "/inventory.html");
+  }
 }
