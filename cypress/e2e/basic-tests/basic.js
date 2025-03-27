@@ -1,3 +1,9 @@
+import { LoginPage } from "../pages/loginPage";
+
+//Instancias de clase
+let loginPage = new LoginPage
+
+
 describe("basic test", () => {
 
   beforeEach("visit saucedemo", () => {
@@ -13,6 +19,10 @@ describe("basic test", () => {
     cy.get('[data-test="login-button"]').click();
     cy.url().should('include', 'inventory.html');
     cy.get('[data-test="primary-header"]').should('contain', 'Swag Labs');
-    });
+  });
+
+  it("login happy path using page object model", () => {
+    loginPage.correctLogin()
+  });
 
 })
