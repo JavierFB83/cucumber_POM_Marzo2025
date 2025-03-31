@@ -28,4 +28,8 @@ e2e: {
   defaultCommandTimeout: 10000,
   experimentalStudio: true,
   failOnStatusCode: false,
+  env: {
+    snapshotOnly: true,
+    requestMode: true,
+  },
 });
