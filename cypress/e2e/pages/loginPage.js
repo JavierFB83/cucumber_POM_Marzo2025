@@ -1,5 +1,4 @@
 import { CommonPage } from "./commonPage";
-
 // Locators
 const usernameLocator = '[data-test="username"]'
 const acceptedtUserNames = ['standard_user','locked_out_user','problem_user','performance_glitch_user','error_user','visual_user'];
@@ -73,7 +72,7 @@ export class LoginPage extends CommonPage{
       cy.url().should("eq", "https://www.saucedemo.com/inventory.html"); // Verifica que se redirige a la página correcta
     });
     cy.visit("https://www.saucedemo.com/inventory.html", {
-      failOnStatusCode: false,
+      failOnStatusCode: false
     });
     cy.url().should("include", "/inventory.html");
   }

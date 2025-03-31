@@ -82,7 +82,7 @@ export class CommonPage{
   }
 
 //------------------------------------------------------------------------------------------------------------//
-/// Función para testear accesibilidad
+// Función para testear accesibilidad
   testAccesibilityInScreen () {
     cy.injectAxe();
     cy.checkA11y();

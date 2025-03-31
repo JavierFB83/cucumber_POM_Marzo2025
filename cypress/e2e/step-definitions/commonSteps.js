@@ -73,7 +73,7 @@ Given('I test the accesibility on the element with locator {string}', (elementLo
 
 
 
-//-------------------------------------------------------------------------------------------//
+// -------------------------------------------------------------------------------------------//
   // Steps para intercept
 
 Given('I wait until the api call for the cookies in HBO page', () => {

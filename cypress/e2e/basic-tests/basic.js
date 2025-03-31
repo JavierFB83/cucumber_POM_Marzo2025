@@ -1,7 +1,12 @@
+
 import { LoginPage } from "../pages/loginPage";
 
-//Instancias de clase
-let loginPage = new LoginPage
+// Better practice to POM without cucumber
+
+import {commonPage, loginPage, mainPage, shoppingCartPage} from "../pages/indexPage"
+
+// Instancias de clase
+
 
 
 describe("basic test", () => {

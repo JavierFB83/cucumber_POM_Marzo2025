@@ -18,4 +18,10 @@ export class ShoppingCartPage extends CommonPage{
     this.getElementByClass(inventoryItem).should(assertion);
   }
 
+  // Ejercicio 31-03-2025
+
+  checkInventoryItem(itemName, itemPrice) {
+    cy.contains(`[data-test="${inventoryItem}"]`, itemName).should('contain', itemName).and('contain', itemPrice)
+  }
+
 }

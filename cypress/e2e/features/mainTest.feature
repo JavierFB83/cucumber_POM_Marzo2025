@@ -1,6 +1,6 @@
 Feature: Main test suite
 
-Background:
+Background: Login and keep session
   Given I login and keep the sesion for the standar_user
 
   Scenario: Add a product to cart from products overview
