@@ -89,7 +89,7 @@ describe('Testing POST and PUT on Typicode', () => {
     })
    });
 
-   it.only('All methods used in one test', () => {
+   it('All methods used in one test', () => {
     //Declaramos las variables a usar en los metodos POST, PUT y PATCH
     const postData = {
       "name": "Objeto creado por Javier Flores",
@@ -151,6 +151,67 @@ describe('Testing POST and PUT on Typicode', () => {
    });
   });
 
+//Otra forma de hacerlo es guardar el valor de la ID en una variable fuera de los tests para poder usarlas en otros tests
+
+let id
+//Declaramos la variable id vacía para luego ponerle elvalor de la ID y tener acceso en todos los tests 
+    it('POST - Creation of new product', () => {
+        const bodyCreate = {
+            name: "Prueba",
+            data: null
+        };
+        cy.request('POST', 'https://api.restful-api.dev/objects', bodyCreate)
+        .then((response) => {
+            const res = response.body
+            id = res.id
+            expect(response.status).to.eq(200);
+            expect(res).to.deep.include(bodyCreate);
+            cy.log(res.createdAt);
+            cy.log(res.id);
+        })
+    });
+
+    it('PATCH - Modify value in new product', () => {
+        const bodyUpdate = {
+            data: {
+                year: 2019,
+            }
+        }
+        cy.request('PATCH',  `https://api.restful-api.dev/objects/${id}`, bodyUpdate)
+        .then((response) => {
+            const res = response.body
+            expect(response.status).to.eq(200);
+            expect(res).to.deep.include(bodyUpdate);
+            expect(res.id).to.deep.eq(id);
+            expect(res.updatedAt).to.be.a('string');
+        })
+    })
+
+    it('GET new product created', () => {
+        const expectedBody = {
+            id: id,
+            name: "Prueba",
+            data: {
+                year: 2019,
+            }
+        }
+        cy.request('GET', `https://api.restful-api.dev/objects/${id}`)
+        .then((response) => {
+            expect(response.status).to.eq(200);
+            expect(response.body).to.deep.eq(expectedBody);
+        })
+    });
+
+    it('DELETE new product created', () => {
+        const expectedBody = {
+            message: `Object with id = ${id} has been deleted.`
+        }
+        cy.request('DELETE', `https://api.restful-api.dev/objects/${id}`)
+        .then((response) => {
+            expect(response.status).to.eq(200);
+            expect(response.body).to.deep.eq(expectedBody);
+        })
+    });
 
 
 })
