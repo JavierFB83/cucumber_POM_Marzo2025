@@ -229,7 +229,7 @@ describe('Use GET method to get data from typicode', () => {
     });
   });
 
-  it.only('a 404 error is displayed when getting data from typicode/post1/comment', () => {
+  it('a 404 error is displayed when getting data from typicode/post1/comment', () => {
     cy.request({
       url: 'https://jsonplaceholder.typicode.com/posts/1/error',
       failOnStatusCode: false
